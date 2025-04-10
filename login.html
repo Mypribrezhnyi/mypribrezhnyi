@@ -3,24 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Вход в СНТ Прибрежный</title>
+  <title>Вход — СНТ Прибрежный</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(to bottom, #003366, #005a9c);
+      background: linear-gradient(to bottom right, #004080, #0059b3);
       color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
 
-    .container {
-      padding: 40px 20px;
+    .login-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      width: 90%;
       max-width: 400px;
-      margin: 0 auto;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 80px;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 30px;
+      font-size: 24px;
     }
 
     input {
@@ -28,18 +48,19 @@
       padding: 14px;
       margin-bottom: 16px;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       font-size: 16px;
     }
 
     button {
       width: 100%;
       padding: 14px;
-      background-color: #1565c0;
-      color: white;
+      background-color: #ffd700;
+      color: black;
       font-size: 16px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
+      font-weight: bold;
       cursor: pointer;
     }
 
@@ -49,10 +70,15 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Вход в СНТ</h1>
-    <input type="tel" id="phone" placeholder="Номер телефона" />
-    <button onclick="showCodeField()">Войти</button>
+  <div class="login-box">
+    <div class="logo">
+      <img src="logo.png" alt="Логотип СНТ">
+    </div>
+
+    <h1>Вход в личный кабинет</h1>
+
+    <input type="tel" id="phone" placeholder="Введите номер телефона" />
+    <button onclick="showCodeField()">Продолжить</button>
 
     <div id="codeBlock">
       <input type="text" id="code" placeholder="Код подтверждения" />
