@@ -1,0 +1,50 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Вход в админку</title>
+  <style>
+    body {
+      background-color: #004080;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    input, button {
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+      border: none;
+    }
+
+    button {
+      background: #ffd700;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Админ-панель СНТ</h2>
+  <p>Введите PIN-код:</p>
+  <input type="password" id="pin" placeholder="PIN" />
+  <button onclick="login()">Войти</button>
+
+  <script>
+    function login() {
+      const pin = document.getElementById('pin').value;
+      if (pin === "1234") {
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Неверный PIN!");
+      }
+    }
+  </script>
+</body>
+</html>
