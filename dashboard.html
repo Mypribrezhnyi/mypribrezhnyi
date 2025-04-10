@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Админ-панель — СНТ Прибрежный</title>
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      color: #004080;
+    }
+
+    section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #004080;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #0059b3;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #004080;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Админ-панель СНТ</h1>
+
+  <section>
+    <h2>Добавить новость</h2>
+    <input type="text" id="newsTitle" placeholder="Заголовок новости">
+    <textarea id="newsText" rows="4" placeholder="Текст новости"></textarea>
+    <input type="text" id="newsImage" placeholder="Ссылка на изображение (необязательно)">
+    <button onclick="addNews()">Добавить</button>
+  </section>
+
+  <section>
+    <h2>Изменить баланс участка</h2>
+    <input type="text" id="plotNumber" placeholder="Номер участка">
+    <input type="number" id="plotBalance" placeholder="Новый баланс">
+    <button onclick="updateBalance()">Сохранить</button>
+  </section>
+
+  <section>
+    <h2>Список участков</h2>
+    <table id="plotsTable">
+      <thead>
+        <tr>
+          <th>Участок</th>
+          <th>Баланс</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Пусто, будет заполнено скриптом -->
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    let plots = JSON.parse(localStorage.getItem("plots")) || {};
+
+    function updateTable() {
+      const tbody = document.querySelector("#plotsTable tbody");
+      tbody.innerHTML = "";
+      for (const number in plots) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = <td>${number}</td><td>${plots[number]}</td>;
+        tbody.appendChild(tr);
+      }
+    }
+
+    function updateBalance() {
+      const number = document.getElementById("plotNumber").value;
+      const balance = document.getElementById("plotBalance").value;
+      if (number && balance !== "") {
+        plots[number] = parseFloat(balance).toFixed(2);
+        localStorage.setItem("plots", JSON.stringify(plots));
+        updateTable();
+        alert("Баланс обновлён!");
+      }
+    }
+
+    function addNews() {
+      const title = document.getElementById("newsTitle").value;
+      const text = document.getElementById("newsText").value;
+      const image = document.getElementById("newsImage").value;
+      const news = JSON.parse(localStorage.getItem("news")) || [];
+
+      news.unshift({ title, text, image, date: new Date().toLocaleDateString() });
+      localStorage.setItem("news", JSON.stringify(news));
+      alert("Новость добавлена!");
+    }
+
+    updateTable();
+  </script>
+</body>
+</html>
