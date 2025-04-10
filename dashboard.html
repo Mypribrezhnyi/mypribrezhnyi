@@ -1,38 +1,150 @@
-if (confirm("Удалить участок " + number + "?")) {
-        delete plots[number];
-        localStorage.setItem("plots", JSON.stringify(plots));
-        updatePlotsTable();
-      }
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Админ-панель | СНТ «Прибрежный»</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f5f8ff;
+      margin: 0;
+      padding: 20px;
     }
-
-    function saveNews() {
-      const title = document.getElementById("newsTitle").value;
-      const text = document.getElementById("newsText").value;
-      const image = document.getElementById("newsImage").value;
-      news.unshift({ title, text, image, date: new Date().toLocaleDateString() });
-      localStorage.setItem("news", JSON.stringify(news));
-      updateNewsList();
-      alert("Новость добавлена!");
+    h1 {
+      text-align: center;
+      color: #003366;
     }
-
-    function deleteNews(index) {
-      news.splice(index, 1);
-      localStorage.setItem("news", JSON.stringify(news));
-      updateNewsList();
+    section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-
-    function updateNewsList() {
-      const ul = document.getElementById("newsList");
-      ul.innerHTML = "";
-      news.forEach((n, i) => {
-        const li = document.createElement("li");
-        li.innerHTML = <b>${n.title}</b> — ${n.date}<br><button onclick="deleteNews(${i})">Удалить</button><br><br>;
-        ul.appendChild(li);
-      });
+    label {
+      display: block;
+      margin-top: 10px;
     }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .entry {
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    .entry p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
 
-    updatePlotsTable();
-    updateNewsList();
-  </script>
+<h1>Админ-панель СНТ «Прибрежный»</h1>
+
+<section id="news-section">
+  <h2>Добавить новость</h2>
+  <label>Заголовок: <input id="news-title" /></label>
+  <label>Текст: <textarea id="news-content"></textarea></label>
+  <label>Изображение URL (необязательно): <input id="news-image" /></label>
+  <button onclick="addNews()">Добавить новость</button>
+  <div id="news-list"></div>
+</section>
+
+<section id="plot-section">
+  <h2>Участки</h2>
+  <label>ФИО: <input id="owner-name" /></label>
+  <label>Номер участка: <input id="plot-number" /></label>
+  <label>Телефон: <input id="phone" /></label>
+  <label>Баланс (пример: -13000): <input id="balance" /></label>
+  <button onclick="addPlot()">Добавить / Обновить участок</button>
+  <div id="plot-list"></div>
+</section>
+
+<script>
+  const newsList = JSON.parse(localStorage.getItem('newsList')) || [];
+  const plots = JSON.parse(localStorage.getItem('plots')) || [];
+
+  function saveData() {
+    localStorage.setItem('newsList', JSON.stringify(newsList));
+    localStorage.setItem('plots', JSON.stringify(plots));
+    render();
+  }
+
+  function addNews() {
+    const title = document.getElementById('news-title').value;
+    const content = document.getElementById('news-content').value;
+    const image = document.getElementById('news-image').value;
+    if (title && content) {
+      newsList.push({ title, content, image });
+      saveData();
+    }
+  }
+
+  function addPlot() {
+    const name = document.getElementById('owner-name').value;
+    const number = document.getElementById('plot-number').value;
+    const phone = document.getElementById('phone').value;
+    const balance = parseFloat(document.getElementById('balance').value) || 0;
+    const index = plots.findIndex(p => p.number === number);
+    if (index >= 0) {
+      plots[index] = { name, number, phone, balance };
+    } else {
+      plots.push({ name, number, phone, balance });
+    }
+    saveData();
+  }
+
+  function render() {
+    const newsContainer = document.getElementById('news-list');
+    newsContainer.innerHTML = '<h3>Список новостей:</h3>';
+    newsList.forEach((n, i) => {
+      newsContainer.innerHTML += `
+        <div class="entry">
+          <strong>${n.title}</strong>
+          <p>${n.content}</p>
+          ${n.image ? <img src="${n.image}" style="max-width:100px;"> : ''}
+          <button onclick="deleteNews(${i})">Удалить</button>
+        </div>`;
+    });
+
+    const plotContainer = document.getElementById('plot-list');
+    plotContainer.innerHTML = '<h3>Список участков:</h3>';
+    plots.forEach((p, i) => {
+      plotContainer.innerHTML += `
+        <div class="entry">
+          <strong>${p.name}</strong> — Участок ${p.number} — Тел: ${p.phone} — Баланс: ${p.balance}₽
+          <button onclick="deletePlot(${i})">Удалить</button>
+        </div>`;
+    });
+  }
+
+  function deleteNews(i) {
+    newsList.splice(i, 1);
+    saveData();
+  }
+
+  function deletePlot(i) {
+    plots.splice(i, 1);
+    saveData();
+  }
+
+  render();
+</script>
+
 </body>
 </html>
