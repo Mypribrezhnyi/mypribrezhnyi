@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Новости СНТ Прибрежный</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to bottom, #003366, #005a9c);
+      color: white;
+    }
 
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      width: 100px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .news-item {
+      background-color: white;
+      color: black;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .news-item h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .news-item p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .news-date {
+      font-size: 12px;
+      color: #555;
+      margin-top: 10px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="logo.png" alt="Логотип СНТ">
+    </div>
+
+    <div class="title">Новости</div>
+
+    <div class="news-item">
+      <h3>Отключение воды</h3>
+      <p>12 апреля с 10:00 до 16:00 будет произведено плановое отключение воды на всех участках.</p>
+      <div class="news-date">11.04.2025</div>
+    </div>
+
+    <div class="news-item">
+      <h3>Общее собрание СНТ</h3>
+      <p>Приглашаем всех участников на общее собрание 14 апреля в 13:00 у домика правления.</p>
+      <div class="news-date">10.04.2025</div>
+    </div>
+
+    <div class="news-item">
+      <h3>Новый вывоз мусора</h3>
+      <p>Вывоз мусора теперь будет производиться каждую субботу утром.</p>
+      <div class="news-date">09.04.2025</div>
+    </div>
+
+  </div>
+</body>
+</html>
