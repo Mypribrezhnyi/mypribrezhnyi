@@ -12,21 +12,26 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #f2f2f2;
+      background-color: #4CAF50; /* Цвет фона (изменить на цвет из логотипа) */
     }
     .login-container {
       background-color: #ffffff;
       border-radius: 10px;
       padding: 30px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 300px;
+      width: 350px;
       text-align: center;
     }
     .logo {
       margin-bottom: 20px;
     }
     .logo img {
-      width: 100px;
+      width: 120px;
+    }
+    h2 {
+      font-size: 20px;
+      color: #4CAF50; /* Цвет логотипа */
+      margin-bottom: 20px;
     }
     input {
       width: 100%;
@@ -43,16 +48,24 @@
     }
     button {
       width: 100%;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
+      padding: 12px;
+      background-color: #ffffff;
+      color: #4CAF50; /* Цвет текста кнопки */
+      border: 1px solid #4CAF50; /* Цвет границы кнопки */
       border-radius: 5px;
       font-size: 16px;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #4CAF50;
+      color: white;
+    }
+    .footer-text {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #4CAF50;
+      text-align: center;
     }
   </style>
 </head>
@@ -62,6 +75,8 @@
     <div class="logo">
       <img src="logo.png" alt="Логотип">
     </div>
+
+    <h2>Добро пожаловать на портал СНТ «Прибрежный»</h2>
 
     <form id="login-form" action="#" method="POST">
       <div>
@@ -76,6 +91,10 @@
 
       <button type="submit">Войти</button>
     </form>
+
+    <div class="footer-text">
+      Добро пожаловать на портал СНТ «Прибрежный»
+    </div>
   </div>
 
   <script>
