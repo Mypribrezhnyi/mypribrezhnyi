@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>СНТ Прибрежный</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    window.onload = () => {
+      lucide.createIcons();
+    };
+  </script>
+
   <style>
     body {
       background: linear-gradient(#014181, #06386b);
@@ -110,32 +118,8 @@
     }
   </style>
 </head>
-  <body>
-  <div class="container">
-    <div class="logo">
-      <img src="logo4.png" alt="Логотип СНТ Прибрежный">
-    </div>
-
-    <div class="page-title">Главная</div>
-
-    <div class="balance-box">
-      0 ₽
-    </div>
-
-    <div class="section">
-      <div class="section-title">Участок 24</div>
-      <div class="notifications">
-        <span>Уведомления</span>
-        <div class="notif-dot">!</div>
-      </div>
-      <button class="pay-button">Оплатить</button>
-    </div>
-    <button class="pay-button2">Мои начисления</button>
-    <div class="nav-section">
-</div>
-    </div>
-  </div>
-     <!-- Нижняя панель -->
+  <body class="bg-[#003C71] pb-24">
+    <!-- Нижняя панель -->
   <nav class="fixed bottom-4 left-4 right-4 bg-[#0F4C81] text-white rounded-3xl h-20 shadow-lg flex justify-around items-center z-50">
     <!-- Баланс -->
     <div class="flex flex-col items-center text-sm">
@@ -160,6 +144,32 @@
     <!-- Полоска свайпа (iPhone style) -->
     <div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-16 h-1.5 bg-white/80 rounded-full"></div>
   </nav>
+
+
+  <div class="container">
+    <div class="logo">
+      <img src="logo4.png" alt="Логотип СНТ Прибрежный">
+    </div>
+
+    <div class="page-title">Главная</div>
+
+    <div class="balance-box">
+      0 ₽
+    </div>
+
+    <div class="section">
+      <div class="section-title">Участок 24</div>
+      <div class="notifications">
+        <span>Уведомления</span>
+        <div class="notif-dot">!</div>
+      </div>
+      <button class="pay-button">Оплатить</button>
+    </div>
+    <button class="pay-button2">Мои начисления</button>
+    <div class="nav-section">
+</div>
+    </div>
+  </div>
 
   </body>
 </html>
