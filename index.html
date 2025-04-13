@@ -135,5 +135,31 @@
 </div>
     </div>
   </div>
+     <!-- Нижняя панель -->
+  <nav class="fixed bottom-4 left-4 right-4 bg-[#0F4C81] text-white rounded-3xl h-20 shadow-lg flex justify-around items-center z-50">
+    <!-- Баланс -->
+    <div class="flex flex-col items-center text-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="white" viewBox="0 0 24 24"><path d="M3 21s0-6 9-6 9 6 9 6H3Zm9-8a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"/></svg>
+      <span class="mt-1 text-xs">Баланс</span>
+    </div>
+
+    <!-- Профиль (с круглой иконкой) -->
+    <div class="flex flex-col items-center text-sm">
+      <div class="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center">
+        <div class="w-2 h-2 bg-white rounded-full"></div>
+      </div>
+      <span class="mt-1 text-xs">Профиль</span>
+    </div>
+
+    <!-- Настройки -->
+    <div class="flex flex-col items-center text-sm">
+      <i data-lucide="user" class="w-6 h-6"></i>
+      <span class="mt-1 text-xs">Профиль</span>
+    </div>
+
+    <!-- Полоска свайпа (iPhone style) -->
+    <div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-16 h-1.5 bg-white/80 rounded-full"></div>
+  </nav>
+
   </body>
 </html>
