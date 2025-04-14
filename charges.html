@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Начисления СНТ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7f9;
+      color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .charge-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.2s ease;
+    }
+
+    .charge-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .charge-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .charge-desc {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .charge-date {
+      font-size: 13px;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    .charge-amount {
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .charge-amount.negative {
+      color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Начисления</div>
+
+    <div class="charge-card">
+      <div class="charge-info">
+        <div class="charge-desc">Оплата членских взносов</div>
+        <div class="charge-date">12 апреля 2025</div>
+      </div>
+      <div class="charge-amount">−2 000 ₽</div>
+    </div>
+
+    <div class="charge-card">
+      <div class="charge-info">
+        <div class="charge-desc">Электроэнергия (март)</div>
+        <div class="charge-date">05 апреля 2025</div>
+      </div>
+      <div class="charge-amount">−1 350 ₽</div>
+    </div>
+
+    <div class="charge-card">
+      <div class="charge-info">
+        <div class="charge-desc">Пополнение баланса</div>
+        <div class="charge-date">01 апреля 2025</div>
+      </div>
+      <div class="charge-amount positive">+5 000 ₽</div>
+    </div>
+  </div>
+</body>
+</html>
