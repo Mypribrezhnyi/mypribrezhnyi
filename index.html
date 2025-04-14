@@ -117,10 +117,62 @@
       flex-direction: column;
       gap: 12px;
       margin-top: 20px;
-    }
-    .strel {
-      text-alight: right;
-    }
+      
+    .arrow-2 {
+    cursor: pointer;
+    height: 120px;
+    width: 80px;
+    position: relative;
+    margin: 20px;
+}
+.arrow-2-top, 
+.arrow-2-bottom {
+    background: #337AB7;
+    height: 10px;
+    left: -30px;
+    position: right;
+    top: 60px;
+    width: 100px;
+}
+.arrow-2-top {
+    top: 64px;
+}
+.arrow-2-top {
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+}
+.arrow-2-bottom {
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+.arrow-2-top::after, 
+.arrow-2-bottom::after {
+    background: #000;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s;
+}
+.arrow-2-top::after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0s;
+}
+.arrow-2-bottom::after {
+    left: 0;
+    right: 100%;
+    transition-delay: 0.15s;
+}
+.arrow-2:hover .arrow-2-top::after {
+    left: 0;
+    transition-delay: 0.15s;
+}
+.arrow-2:hover .arrow-2-bottom::after {
+    right: 0;
+    transition-delay: 0s;
+}
+  
   </style>
 </head>
   <body class="bg-[#003C71] pb-24">
@@ -141,7 +193,10 @@
       <button class="pay-button">Оплатить</button>
     </div>
     <button class="pay-button2">Мои начисления
-    <svg class="strel" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M9.97 7.47a.75.75 0 0 1 1.06 0l4 4a.75.75 0 0 1 0 1.06l-4 4a.75.75 0 1 1-1.06-1.06L13.44 12L9.97 8.53a.75.75 0 0 1 0-1.06" clip-rule="evenodd"/></svg>
+   <div class="arrow-2">
+    <div class="arrow-2-top"></div>
+    <div class="arrow-2-bottom"></div>
+</div>
     </button>
     <div class="nav-section">
 </div>
