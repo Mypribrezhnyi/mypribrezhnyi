@@ -117,62 +117,40 @@
       flex-direction: column;
       gap: 12px;
       margin-top: 20px;
-      
-    .arrow-2 {
-    cursor: pointer;
-    height: 120px;
-    width: 80px;
-    position: relative;
-    margin: 20px;
+        .arrow-7 {
+    margin: 40px auto 10px auto;
+    width: 38px;
+    height: 100px;
 }
-.arrow-2-top, 
-.arrow-2-bottom {
-    background: #337AB7;
-    height: 10px;
-    left: -30px;
-    position: right;
-    top: 60px;
-    width: 100px;
-}
-.arrow-2-top {
-    top: 64px;
-}
-.arrow-2-top {
+.arrow-7 span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #337AB7;
+    border-right: 5px solid #337AB7;
     transform: rotate(45deg);
-    transform-origin: bottom right;
+    margin: -16px 0;
+    animation: arrow-7 2s infinite;
 }
-.arrow-2-bottom {
-    transform: rotate(-45deg);
-    transform-origin: top right;
+.arrow-7 span:nth-child(2){
+    animation-delay: -0.2s;
 }
-.arrow-2-top::after, 
-.arrow-2-bottom::after {
-    background: #000;
-    content: '';
-    height: 100%;
-    position: absolute;
-    top: 0;
-    transition: all 0.15s;
+.arrow-7 span:nth-child(3){
+    animation-delay: -0.4s;
 }
-.arrow-2-top::after {
-    left: 100%;
-    right: 0;
-    transition-delay: 0s;
+@keyframes arrow-7 {
+    0%{
+        opacity: 0;
+        transform: translate(0,-20px) rotate(45deg);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translate(0,20px) rotate(45deg);
+    }
 }
-.arrow-2-bottom::after {
-    left: 0;
-    right: 100%;
-    transition-delay: 0.15s;
-}
-.arrow-2:hover .arrow-2-top::after {
-    left: 0;
-    transition-delay: 0.15s;
-}
-.arrow-2:hover .arrow-2-bottom::after {
-    right: 0;
-    transition-delay: 0s;
-}
-  
   </style>
 </head>
   <body class="bg-[#003C71] pb-24">
@@ -192,12 +170,15 @@
       </div>
       <button class="pay-button">Оплатить</button>
     </div>
-    <button class="pay-button2">Мои начисления
-   <div class="arrow-2">
-    <div class="arrow-2-top"></div>
-    <div class="arrow-2-bottom"></div>
+    <button class="pay-button2">
+      <p>Мои начисления</p>
+    <div class="arrow-7">
+    <span></span>
+    <span></span>
+    <span></span>
 </div>
     </button>
+    
     <div class="nav-section">
 </div>
     </div>
