@@ -3,97 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Начисления СНТ</title>
+  <title>Операции</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f7f9;
-      color: #1a1a1a;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #000;
+      color: #fff;
     }
 
-    .container {
-      max-width: 500px;
-      margin: 30px auto;
-      padding: 20px;
-    }
-
-    .title {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .charge-card {
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    .header {
+      background-color: #111;
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: 0.2s ease;
     }
 
-    .charge-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    .header-title {
+      font-size: 18px;
+      font-weight: bold;
     }
 
-    .charge-info {
+    .tab-bar {
+      display: flex;
+      gap: 10px;
+      padding: 12px 20px;
+      background-color: #111;
+    }
+
+    .tab {
+      background-color: #222;
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .tab.active {
+      background-color: #005BFF;
+      color: #fff;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      background-color: #111;
+    }
+
+    .stat {
+      background-color: #1c1c1e;
+      padding: 16px;
+      border-radius: 12px;
+      width: 45%;
+      text-align: center;
+    }
+
+    .stat-amount {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .banner {
+      background: linear-gradient(to right, #ffd700, #ffca28);
+      color: #000;
+      padding: 16px 20px;
+      font-size: 14px;
+      margin: 0 20px 20px;
+      border-radius: 12px;
+    }
+
+    .section-title {
+      padding: 0 20px;
+      font-size: 15px;
+      margin: 12px 0 4px;
+      color: #ccc;
+    }
+
+    .operation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background-color: #1c1c1e;
+      margin: 4px 20px;
+      border-radius: 10px;
+    }
+
+    .operation-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .op-details {
       display: flex;
       flex-direction: column;
     }
 
-    .charge-desc {
-      font-size: 16px;
+    .op-title {
+      font-size: 15px;
       font-weight: 500;
     }
 
-    .charge-date {
+    .op-subtitle {
       font-size: 13px;
-      color: #777;
-      margin-top: 4px;
+      color: #aaa;
     }
 
-    .charge-amount {
-      font-size: 16px;
+    .op-right {
+      text-align: right;
+    }
+
+    .op-amount {
+      font-size: 15px;
       font-weight: 600;
-      color: #000;
     }
 
-    .charge-amount.negative {
-      color: #d32f2f;
+    .op-amount.positive {
+      color: #4CAF50;
+    }
+
+    .op-amount.negative {
+      color: #E53935;
+    }
+
+    .op-time {
+      font-size: 12px;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="title">Начисления</div>
 
-    <div class="charge-card">
-      <div class="charge-info">
-        <div class="charge-desc">Оплата членских взносов</div>
-        <div class="charge-date">12 апреля 2025</div>
-      </div>
-      <div class="charge-amount">−2 000 ₽</div>
+  <div class="header">
+    <div class="header-title">Операции</div>
+  </div>
+
+  <div class="tab-bar">
+    <div class="tab active">Апрель</div>
+    <div class="tab">Счета и карты</div>
+    <div class="tab">Без переводов</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-amount">60 811 ₽</div>
+      <div class="stat-label">Траты</div>
     </div>
-
-    <div class="charge-card">
-      <div class="charge-info">
-        <div class="charge-desc">Электроэнергия (март)</div>
-        <div class="charge-date">05 апреля 2025</div>
-      </div>
-      <div class="charge-amount">−1 350 ₽</div>
-    </div>
-
-    <div class="charge-card">
-      <div class="charge-info">
-        <div class="charge-desc">Пополнение баланса</div>
-        <div class="charge-date">01 апреля 2025</div>
-      </div>
-      <div class="charge-amount positive">+5 000 ₽</div>
+    <div class="stat">
+      <div class="stat-amount">59 075 ₽</div>
+      <div class="stat-label">Доходы</div>
     </div>
   </div>
+
+  <div class="banner">
+    Посоветуйте другу обновить приложение<br />
+    <strong>Начислим по 100 ₽ за установку</strong>
+  </div>
+
+  <div class="section-title">Сегодня</div>
+
+  <div class="operation">
+    <div class="operation-left">
+      <div class="icon">Т</div>
+      <div class="op-details">
+        <div class="op-title">Пополнение. Т-Банк</div>
+        <div class="op-subtitle">Другое</div>
+      </div>
+    </div>
+    <div class="op-right">
+      <div class="op-amount positive">+120 ₽</div>
+      <div class="op-time">Т-Мобайл</div>
+    </div>
+  </div>
+
+  <div class="operation">
+    <div class="operation-left">
+      <div class="icon">Т</div>
+      <div class="op-details">
+        <div class="op-title">Т-Мобайл +7 919...</div>
+        <div class="op-subtitle">Мобильная связь</div>
+      </div>
+    </div>
+    <div class="op-right">
+      <div class="op-amount negative">−120 ₽</div>
+      <div class="op-time">T BANK</div>
+    </div>
+  </div>
+
+  <div class="section-title">Вчера</div>
+
+  <div class="operation">
+    <div class="operation-left">
+      <div class="icon">✔</div>
+      <div class="op-details">
+        <div class="op-title">Сбербанк</div>
+        <div class="op-subtitle">Другое</div>
+      </div>
+    </div>
+    <div class="op-right">
+      <div class="op-amount positive">+300 ₽</div>
+      <div class="op-time">mcfillllurry</div>
+    </div>
+  </div>
+
 </body>
 </html>
