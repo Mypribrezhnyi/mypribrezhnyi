@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Профиль</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#f3f7fb] text-[#003C71] font-sans min-h-screen p-4">
+
+  <!-- Заголовок -->
+  <div class="text-center mb-6">
+    <h1 class="text-2xl font-bold">Привет, Алексей!</h1>
+    <p class="text-sm text-gray-500">Это твой личный профиль участника СНТ «Прибрежный»</p>
+  </div>
+
+  <!-- Карточка профиля -->
+  <div class="bg-white rounded-3xl shadow-md p-6 max-w-md mx-auto">
+    
+    <!-- Аватар + смена -->
+    <div class="flex flex-col items-center mb-4">
+      <img id="avatar" src="https://via.placeholder.com/100" alt="Аватар" class="w-24 h-24 rounded-full border-4 border-[#003C71] mb-2 object-cover" />
+      <label class="text-sm text-blue-600 cursor-pointer hover:underline">
+        Сменить аватар
+        <input type="file" id="avatarInput" class="hidden" accept="image/*" />
+      </label>
+    </div>
+
+    <!-- Информация -->
+    <div class="space-y-4 text-sm">
+      <div>
+        <p class="text-gray-500">Ф.И.О</p>
+        <p class="text-base font-medium">Иванов Алексей Петрович</p>
+      </div>
+      <div>
+        <p class="text-gray-500">Номер телефона</p>
+        <p class="text-base font-medium">+7 (900) 123-45-67</p>
+      </div>
+      <div>
+        <p class="text-gray-500">Электронная почта</p>
+        <p class="text-base font-medium">ivanov@example.com</p>
+      </div>
+      <div>
+        <p class="text-gray-500">Номер участка</p>
+        <p class="text-base font-medium">Участок №12</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Кнопки -->
+  <div class="mt-6 flex justify-center gap-4">
+    <button class="bg-[#003C71] text-white px-6 py-2 rounded-full shadow hover:bg-[#002a50] transition">
+      Редактировать
+    </button>
+    <button class="border border-[#003C71] text-[#003C71] px-6 py-2 rounded-full shadow hover:bg-gray-100 transition">
+      Выйти
+    </button>
+  </div>
+
+  <!-- Скрипт для смены аватарки -->
+  <script>
+    const input = document.getElementById('avatarInput');
+    const avatar = document.getElementById('avatar');
+
+    input.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          avatar.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+
+</body>
+</html>
