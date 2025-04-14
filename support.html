@@ -5,127 +5,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Поддержка</title>
   <style>
+    :root {
+      --accent: #ffdd2d;
+      --text: #000;
+      --bg: #fff;
+      --gray: #777;
+    }
+
     body {
-      background: linear-gradient(#014181, #06386b);
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
     }
 
-    .support-container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 24px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    .support-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 24px 16px 80px;
     }
 
-    .support-container h1 {
+    h1 {
       font-size: 28px;
-      margin-bottom: 20px;
-      color: #333;
+      font-weight: bold;
+      margin-bottom: 24px;
     }
 
-    .faq {
-      margin-bottom: 30px;
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: 0.2s;
     }
 
-    .faq h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .faq-item {
-      background-color: #f7f9fc;
-      padding: 10px 16px;
-      border-radius: 6px;
-      margin-bottom: 10px;
+    .card h2 {
+      font-size: 18px;
+      margin: 0 0 8px;
     }
 
-    .faq-item p {
+    .card p {
       margin: 0;
-      color: #444;
-    }
-
-    .support-form h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .support-form label {
-      display: block;
-      margin-top: 12px;
-      margin-bottom: 4px;
-      color: #555;
-    }
-
-    .support-form input,
-    .support-form textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
+      color: var(--gray);
       font-size: 14px;
     }
 
-    .support-form textarea {
-      resize: vertical;
-      height: 120px;
+    .form-section {
+      margin-top: 40px;
     }
 
-    .support-form button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #5181B8;
-      color: white;
+    .form-section h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: var(--accent);
       border: none;
-      border-radius: 6px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: bold;
       font-size: 16px;
       cursor: pointer;
+      margin-top: 8px;
+      width: 100%;
+      transition: background-color 0.2s;
     }
 
-    .support-form button:hover {
-      background-color: #406aa0;
+    button:hover {
+      background-color: #f9ce00;
     }
   </style>
 </head>
 <body>
 
-  <div class="support-container">
-    <h1>Центр поддержки</h1>
+  <div class="support-wrapper">
+    <h1>Поддержка</h1>
 
-    <div class="faq">
-      <h2>Популярные вопросы</h2>
-
-      <div class="faq-item">
-        <p><strong>Как оплатить членские взносы?</strong><br>
-        В разделе "Платежи" вы найдёте актуальные счета и реквизиты. Также доступна оплата онлайн.</p>
-      </div>
-
-      <div class="faq-item">
-        <p><strong>Как изменить данные профиля?</strong><br>
-        В личном кабинете нажмите кнопку "Редактировать".</p>
-      </div>
-
-      <div class="faq-item">
-        <p><strong>Не приходят уведомления — что делать?</strong><br>
-        Проверьте настройки уведомлений в профиле и убедитесь, что почта указана корректно.</p>
-      </div>
+    <div class="card">
+      <h2>Как оплатить взносы?</h2>
+      <p>Перейдите в раздел «Платежи» и выберите удобный способ оплаты.</p>
     </div>
 
-    <div class="support-form">
-      <h2>Обратиться в поддержку</h2>
-      <form action="#" method="post">
-        <label for="name">Ваше имя</label>
-        <input type="text" id="name" name="name" required>
+    <div class="card">
+      <h2>Изменение данных профиля</h2>
+      <p>Нажмите «Редактировать» в личном кабинете, чтобы обновить данные.</p>
+    </div>
 
-        <label for="email">Электронная почта</label>
-        <input type="email" id="email" name="email" required>
+    <div class="card">
+      <h2>Не приходят уведомления</h2>
+      <p>Проверьте настройки уведомлений и корректность email в профиле.</p>
+    </div>
 
-        <label for="message">Сообщение</label>
-        <textarea id="message" name="message" required></textarea>
+    <div class="form-section">
+      <h2>Написать нам</h2>
+      <form action="#">
+        <div class="form-group">
+          <label for="name">Ваше имя</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Электронная почта</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
 
         <button type="submit">Отправить</button>
       </form>
