@@ -2,227 +2,234 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Операции</title>
   <style>
+    :root {
+      --bg-dark: #000;
+      --bg-secondary: #1c1c1e;
+      --bg-card: #111;
+      --text-primary: #fff;
+      --text-secondary: #aaa;
+      --positive: #4caf50;
+      --negative: #e53935;
+      --highlight: #ffd600;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #000;
-      color: #fff;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      -webkit-tap-highlight-color: transparent;
     }
 
     .header {
-      background-color: #111;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .header-title {
+      background-color: var(--bg-card);
+      padding: 14px 16px;
       font-size: 18px;
       font-weight: bold;
     }
 
-    .tab-bar {
+    .filters {
       display: flex;
-      gap: 10px;
-      padding: 12px 20px;
-      background-color: #111;
+      overflow-x: auto;
+      padding: 8px 12px;
+      gap: 8px;
+      background-color: var(--bg-card);
     }
 
-    .tab {
-      background-color: #222;
+    .filter-btn {
       padding: 6px 14px;
+      background-color: #222;
       border-radius: 16px;
+      color: var(--text-secondary);
       font-size: 14px;
-      color: #aaa;
+      white-space: nowrap;
     }
 
-    .tab.active {
-      background-color: #005BFF;
-      color: #fff;
+    .filter-btn.active {
+      background-color: #005bff;
+      color: white;
     }
 
-    .stats {
+    .summary {
       display: flex;
-      justify-content: space-around;
-      padding: 20px;
-      background-color: #111;
+      justify-content: space-between;
+      padding: 16px 12px;
+      background-color: var(--bg-card);
     }
 
-    .stat {
-      background-color: #1c1c1e;
-      padding: 16px;
-      border-radius: 12px;
-      width: 45%;
+    .summary-box {
+      background-color: var(--bg-secondary);
+      border-radius: 10px;
+      padding: 14px;
+      flex: 0 0 48%;
       text-align: center;
     }
 
-    .stat-amount {
-      font-size: 18px;
+    .summary-amount {
+      font-size: 17px;
       font-weight: 600;
     }
 
-    .stat-label {
-      font-size: 14px;
-      color: #aaa;
+    .summary-label {
+      font-size: 13px;
+      color: var(--text-secondary);
     }
 
     .banner {
-      background: linear-gradient(to right, #ffd700, #ffca28);
+      margin: 10px 12px;
+      background-color: var(--highlight);
       color: #000;
-      padding: 16px 20px;
+      padding: 14px;
+      border-radius: 10px;
       font-size: 14px;
-      margin: 0 20px 20px;
-      border-radius: 12px;
     }
 
     .section-title {
-      padding: 0 20px;
-      font-size: 15px;
-      margin: 12px 0 4px;
-      color: #ccc;
+      margin: 16px 12px 6px;
+      font-size: 14px;
+      color: var(--text-secondary);
     }
 
     .operation {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 20px;
-      background-color: #1c1c1e;
-      margin: 4px 20px;
+      padding: 12px;
+      margin: 6px 12px;
+      background-color: var(--bg-secondary);
       border-radius: 10px;
     }
 
-    .operation-left {
+    .left {
       display: flex;
       align-items: center;
-      gap: 12px;
     }
 
     .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+      width: 38px;
+      height: 38px;
       background-color: #333;
+      border-radius: 50%;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       font-weight: bold;
       color: #fff;
+      margin-right: 12px;
+      font-size: 15px;
     }
 
-    .op-details {
+    .details {
       display: flex;
       flex-direction: column;
     }
 
-    .op-title {
+    .title {
       font-size: 15px;
       font-weight: 500;
     }
 
-    .op-subtitle {
+    .subtitle {
       font-size: 13px;
-      color: #aaa;
+      color: var(--text-secondary);
+      margin-top: 2px;
     }
 
-    .op-right {
+    .right {
       text-align: right;
     }
 
-    .op-amount {
+    .amount {
       font-size: 15px;
       font-weight: 600;
     }
 
-    .op-amount.positive {
-      color: #4CAF50;
+    .positive {
+      color: var(--positive);
     }
 
-    .op-amount.negative {
-      color: #E53935;
+    .negative {
+      color: var(--negative);
     }
 
-    .op-time {
+    .meta {
       font-size: 12px;
-      color: #888;
+      color: var(--text-secondary);
     }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <div class="header-title">Операции</div>
+  <div class="header">Операции</div>
+
+  <div class="filters">
+    <div class="filter-btn active">Апрель</div>
+    <div class="filter-btn">Счета и карты</div>
+    <div class="filter-btn">Без переводов</div>
   </div>
 
-  <div class="tab-bar">
-    <div class="tab active">Апрель</div>
-    <div class="tab">Счета и карты</div>
-    <div class="tab">Без переводов</div>
-  </div>
-
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-amount">60 811 ₽</div>
-      <div class="stat-label">Траты</div>
+  <div class="summary">
+    <div class="summary-box">
+      <div class="summary-amount">60 811 ₽</div>
+      <div class="summary-label">Траты</div>
     </div>
-    <div class="stat">
-      <div class="stat-amount">59 075 ₽</div>
-      <div class="stat-label">Доходы</div>
+    <div class="summary-box">
+      <div class="summary-amount">59 075 ₽</div>
+      <div class="summary-label">Доходы</div>
     </div>
   </div>
 
   <div class="banner">
-    Посоветуйте другу обновить приложение<br />
-    <strong>Начислим по 100 ₽ за установку</strong>
+    Посоветуйте другу обновить приложение — начислим по 100 ₽ за установку
   </div>
 
   <div class="section-title">Сегодня</div>
 
   <div class="operation">
-    <div class="operation-left">
+    <div class="left">
       <div class="icon">Т</div>
-      <div class="op-details">
-        <div class="op-title">Пополнение. Т-Банк</div>
-        <div class="op-subtitle">Другое</div>
+      <div class="details">
+        <div class="title">Пополнение. Т-Банк</div>
+        <div class="subtitle">Другое</div>
       </div>
     </div>
-    <div class="op-right">
-      <div class="op-amount positive">+120 ₽</div>
-      <div class="op-time">Т-Мобайл</div>
+    <div class="right">
+      <div class="amount positive">+120 ₽</div>
+      <div class="meta">Т-Мобайл</div>
     </div>
   </div>
 
   <div class="operation">
-    <div class="operation-left">
+    <div class="left">
       <div class="icon">Т</div>
-      <div class="op-details">
-        <div class="op-title">Т-Мобайл +7 919...</div>
-        <div class="op-subtitle">Мобильная связь</div>
+      <div class="details">
+        <div class="title">Т-Мобайл +7 919...</div>
+        <div class="subtitle">Мобильная связь</div>
       </div>
     </div>
-    <div class="op-right">
-      <div class="op-amount negative">−120 ₽</div>
-      <div class="op-time">T BANK</div>
+    <div class="right">
+      <div class="amount negative">−120 ₽</div>
+      <div class="meta">T BANK</div>
     </div>
   </div>
 
   <div class="section-title">Вчера</div>
 
   <div class="operation">
-    <div class="operation-left">
+    <div class="left">
       <div class="icon">✔</div>
-      <div class="op-details">
-        <div class="op-title">Сбербанк</div>
-        <div class="op-subtitle">Другое</div>
+      <div class="details">
+        <div class="title">Сбербанк</div>
+        <div class="subtitle">Другое</div>
       </div>
     </div>
-    <div class="op-right">
-      <div class="op-amount positive">+300 ₽</div>
-      <div class="op-time">mcfillllurry</div>
+    <div class="right">
+      <div class="amount positive">+300 ₽</div>
+      <div class="meta">mcfillllurry</div>
     </div>
   </div>
 
