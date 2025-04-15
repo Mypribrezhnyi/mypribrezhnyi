@@ -4,127 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Поддержка</title>
-  <style>
-    :root {
-      --accent: #ffdd2d;
-      --text: #000;
-      --bg: #fff;
-      --gray: #777;
-    }
-
-    body {
-      background: linear-gradient(#014181, #06386b);
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      color: var(--text);
-    }
-
-    .support-wrapper {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 24px 16px 80px;
-    }
-
-    h1 {
-      font-size: 28px;
-      font-weight: bold;
-      margin-bottom: 24px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      padding: 20px;
-      margin-bottom: 16px;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .card h2 {
-      font-size: 18px;
-      margin: 0 0 8px;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--gray);
-      font-size: 14px;
-    }
-
-    .form-section {
-      margin-top: 40px;
-    }
-
-    .form-section h2 {
-      font-size: 20px;
-      margin-bottom: 16px;
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    label {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 14px;
-      box-sizing: border-box;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    button {
-      background-color: var(--accent);
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 8px;
-      width: 100%;
-      transition: background-color 0.2s;
-    }
-
-    button:hover {
-      background-color: #f9ce00;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <div class="support-wrapper">
+  <div class="container">
     <h1>Поддержка</h1>
 
     <div class="card">
-      <h2>Как оплатить взносы?</h2>
-      <p>Перейдите в раздел «Платежи» и выберите удобный способ оплаты.</p>
+      <p><strong>Телефон:</strong><br />+7 012 346-67-89</p>
+      <p><strong>Email:</strong><br />support@email.ru</p>
     </div>
 
-    <div class="card">
-      <h2>Изменение данных профиля</h2>
-      <p>Нажмите «Редактировать» в личном кабинете, чтобы обновить данные.</p>
-    </div>
+    <button class="primary-btn">Написать</button>
+  </div>
 
-    <div class="card">
-      <h2>Не приходят уведомления</h2>
-      <p>Проверьте настройки уведомлений и корректность email в профиле.</p>
-    </div>
+  <div class="navbar">
+    <a href="index.html">Главная</a>
+    <a href="news.html">Новости</a>
+    <a href="profile.html">Профиль</a>
+    <a href="support.html" class="active">Поддержка</a>
+  </div>
 </body>
 </html>
